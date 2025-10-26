@@ -1,0 +1,1 @@
+console.log('[DOCKER]: Setup done')
