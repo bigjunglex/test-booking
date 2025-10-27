@@ -1,4 +1,4 @@
-import { integer, pgTable, varchar, serial, timestamp } from "drizzle-orm/pg-core";
+import { integer, pgTable, varchar, serial, timestamp, unique } from "drizzle-orm/pg-core";
 
 
 export const events = pgTable("events", {
@@ -13,4 +13,5 @@ export const bookings = pgTable("bookings", {
     event_id: integer().references(() => events.id, {onDelete: 'cascade'}).notNull(),
     user_id: varchar({ length: 255 }).notNull(),
     created_at: timestamp().notNull().defaultNow(),
-});
+}, (t) => [ unique('booking_contraint').on(t.event_id, t.user_id) ]
+);
