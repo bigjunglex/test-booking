@@ -1,5 +1,8 @@
-Test task for booking service
+## Test task for booking service
+#### Start
+set: ```.env``` 
 
+run: ```docker compose up```
 <details>
     <summary>Задача</summary>
 
